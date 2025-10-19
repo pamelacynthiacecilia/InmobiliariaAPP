@@ -5,7 +5,7 @@ import android.content.SharedPreferences;
 import android.util.Log;
 
 import com.example.app_inmobiliaria_lab3_2025.modelo.LoginView;
-import com.example.app_inmobiliaria_lab3_2025.modelo.Propietario;
+import com.example.app_inmobiliaria_lab3_2025.modelo.Propietarios;
 import com.example.app_inmobiliaria_lab3_2025.modelo.TokenResponse;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -18,6 +18,7 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.Header;
 import retrofit2.http.POST;
+import retrofit2.http.PUT;
 
 public class ApiClient {
 
@@ -29,11 +30,27 @@ public class ApiClient {
         editor.apply();
     }
 
-     //Leer token
+    //Leer token
     public static String leerToken(Context context){
-        SharedPreferences sp= context.getSharedPreferences("token.xml", Context.MODE_PRIVATE);
-         return sp.getString("token", null);
+        SharedPreferences sp= context.getSharedPreferences("token", Context.MODE_PRIVATE);
+        return sp.getString("token", null);
     }
+
+    //Guardar Correo usuario logueado
+    public static void guardarEmail(Context context, String email){
+        SharedPreferences sp= context.getSharedPreferences("correoPref",Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor= sp.edit();
+        editor.putString("correoPref",email);
+        editor.apply();
+    }
+
+    //Leer email usuario logueado
+
+    public static String leerEmail(Context context){
+        SharedPreferences sp= context.getSharedPreferences("correoPref", Context.MODE_PRIVATE);
+        return sp.getString("correoPref", null);
+    }
+
 
 
 
@@ -45,35 +62,34 @@ public class ApiClient {
     // genera un Objeto que implementa la interface
     public static MyApiInterfaceService getApiClientInterface() {
 
-        Gson gson = new GsonBuilder().create();
+        Gson gson = new GsonBuilder()
+                .setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
 
-        Retrofit retrofit = new Retrofit.Builder()
+        Retrofit  retrofit = new Retrofit.Builder()
                 .baseUrl(PATH)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build();
         myApiInterfaceInmobiliaria = retrofit.create(MyApiInterfaceService.class);
 
-        Log.d("salida", retrofit.baseUrl().toString());
+        Log.d("salida interface retrofit", retrofit.baseUrl().toString());
         return myApiInterfaceInmobiliaria;
     }
 
 
     public interface MyApiInterfaceService {
 
-       /* @FormUrlEncoded
-        @POST("propietario/login")
-        Call<String> login(@Field("usuario") String usuario, @Field("clave") String clave);
-
-        @POST("propietario/login")
-        Call<String> login(@Body LoginView loginView);*/
-
         @POST("propietario/login")
         Call<TokenResponse> login(@Body LoginView loginView);
 
 
-        @GET("propietario/obtenerUsuario")
-        Call<Propietario> obtenerPropietario(@Header("Authorization")@Body int id);
+        @GET("propietario/usuarioActual")
+        Call<Propietarios>usuarioActual(@Header("Authorization")String token);
 
-        Call<String> login(String usuario, String clave);
+
+        @PUT("propietario/editar")
+        Call<Propietarios>editar(@Header("Authorization") String token,@Body Propietarios propietario);
+
+
+
     }
 }

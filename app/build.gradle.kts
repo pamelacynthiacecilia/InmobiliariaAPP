@@ -35,7 +35,11 @@ android {
 }
 
 dependencies {
-
+    implementation("com.github.bumptech.glide:glide:4.16.0")
+    //implementation("com.google.android.gms:play-services-location:23.0.0")
+    implementation(libs.play.services.location)
+    implementation(libs.play.services.maps)
+    annotationProcessor("com.github.bumptech.glide:compiler:4.16.0")
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)

@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_inicio"
         android:name="com.example.app_inmobiliaria_lab3_2025.ui.inicio.InicioFragment"
-        android:label="Inicio"
+        android:label="Ubicación Inmobiliaria"
         tools:layout="@layout/fragment_inicio" />
 
     <fragment

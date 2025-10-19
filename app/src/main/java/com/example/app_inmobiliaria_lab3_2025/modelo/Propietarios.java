@@ -1,8 +1,6 @@
 package com.example.app_inmobiliaria_lab3_2025.modelo;
 
-import java.util.Objects;
-
-public class Propietario {
+public class Propietarios {
 
     private int id;
     private String dni;
@@ -12,27 +10,30 @@ public class Propietario {
     private String password;
     private String telefono;
 
-    public Propietario(){}
-    public Propietario( String dni, String nombre, String apellido, String email, String password, String telefono) {
-        // this.id = id;
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.password = password;
-        this.telefono = telefono;
+    // Constructor vacío
+    public Propietarios() {}
+
+    // Constructor para crear un propietario nuevo sin id
+    public Propietarios(String Dni, String Nombre, String Apellido, String Email, String Password, String Telefono) {
+        this.dni = Dni;
+        this.nombre = Nombre;
+        this.apellido = Apellido;
+        this.email = Email;
+        this.password = Password;
+        this.telefono = Telefono;
     }
 
-    public Propietario(int id, String dni, String nombre, String apellido, String email,  String telefono) {
-        this.id = id;
-        this.dni = dni;
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.email = email;
-        this.telefono = telefono;
+    // Constructor con id
+    public Propietarios(int Id, String Dni, String Nombre, String Apellido, String Email, String Telefono) {
+        this.id = Id;
+        this.dni = Dni;
+        this.nombre = Nombre;
+        this.apellido = Apellido;
+        this.email = Email;
+        this.telefono = Telefono;
     }
 
-
+    // Getters y setters
     public int getId() {
         return id;
     }
@@ -49,9 +50,13 @@ public class Propietario {
         this.dni = dni;
     }
 
-    public String getNombre() { return nombre; }
+    public String getNombre() {
+        return nombre;
+    }
 
-    public void setNombre(String nombre) { this.nombre = nombre; }
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
 
     public String getApellido() {
         return apellido;
@@ -74,7 +79,7 @@ public class Propietario {
     }
 
     public void setClave(String contraseña) {
-        this.password = password;
+        this.password = contraseña;
     }
 
     public String getTel() {
@@ -84,6 +89,4 @@ public class Propietario {
     public void setTel(String telefono) {
         this.telefono = telefono;
     }
-
-
 }
