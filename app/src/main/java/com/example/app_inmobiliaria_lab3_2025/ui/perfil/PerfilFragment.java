@@ -14,12 +14,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.app_inmobiliaria_lab3_2025.R;
 import com.example.app_inmobiliaria_lab3_2025.modelo.Propietarios;
-import com.example.app_inmobiliaria_lab3_2025.request.ApiClient;
-import com.example.app_inmobiliaria_lab3_2025.ui.login.LoginViewModel;
 
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 
 public class PerfilFragment extends Fragment {
 
@@ -36,7 +31,7 @@ public class PerfilFragment extends Fragment {
 
         //  Observer del propietario
         perfilViewModel.getPropietarioMutable().observe(getViewLifecycleOwner(), propietario -> {
-            if (propietario != null) {
+
                 etId.setText(String.valueOf(propietario.getId()));
                 etDNI.setText(propietario.getDni());
                 etNombre.setText(propietario.getNombre());
@@ -44,7 +39,7 @@ public class PerfilFragment extends Fragment {
                 etEmail.setText(propietario.getEmail());
                 etPass.setText(propietario.getClave());
                 etTelefono.setText(propietario.getTel());
-            }
+
         });
 
         // Observer de mensajes

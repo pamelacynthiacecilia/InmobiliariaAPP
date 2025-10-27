@@ -1,66 +1,54 @@
 package com.example.app_inmobiliaria_lab3_2025.ui.logout;
-
+import android.app.AlertDialog;
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
-
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
 import com.example.app_inmobiliaria_lab3_2025.R;
+import com.example.app_inmobiliaria_lab3_2025.databinding.FragmentLogoutBinding;
+import com.example.app_inmobiliaria_lab3_2025.ui.MainActivity;
+import com.google.android.material.dialog.MaterialAlertDialogBuilder;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link LogoutFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class LogoutFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
-
-    public LogoutFragment() {
-        // Required empty public constructor
-    }
-
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment LogoutFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static LogoutFragment newInstance(String param1, String param2) {
-        LogoutFragment fragment = new LogoutFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
+    private FragmentLogoutBinding binding;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
+    public View onCreateView(@NonNull LayoutInflater inflater,
+                             ViewGroup container, Bundle savedInstanceState) {
+        binding = FragmentLogoutBinding.inflate(inflater, container, false);
+        logout();
+        View root = binding.getRoot();
+        return root;
     }
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_logout, container, false);
+
+    private void logout() {
+        String encabezado = "<font color='#6200EE'><b><big>Cerrar sesión</big></b></font>" ;
+        String cuerpo = "<font color='#000000'><big>¿Deseás salir de la aplicación?</big></font>" ;
+
+        androidx.appcompat.app.AlertDialog dialog = new MaterialAlertDialogBuilder(requireContext())
+                .setTitle(Html.fromHtml(encabezado))
+                .setMessage(Html.fromHtml(cuerpo))
+                .setPositiveButton("Aceptar", (dialogInterface, i) -> {
+                    System.exit(0);
+                })
+                .setNegativeButton("Cancelar", (dialogInterface, i) -> {
+                    Intent intent = new Intent(getActivity(), MainActivity.class);
+                    startActivity(intent);
+                })
+                .setBackground(getResources().getDrawable(R.drawable.dialog_background, null))
+                .show();
+
+        // Colores de los botones
+        dialog.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(Color.parseColor("#6200EE"));
+        dialog.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.BLACK);
     }
+
 }

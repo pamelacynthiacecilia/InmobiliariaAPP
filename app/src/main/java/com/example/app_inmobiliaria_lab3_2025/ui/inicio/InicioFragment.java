@@ -50,7 +50,7 @@ public class InicioFragment extends Fragment implements OnMapReadyCallback {
         inicioViewModel = new ViewModelProvider(this).get(InicioViewModel.class);
         tvDistancia = root.findViewById(R.id.tv_distancia);
 
-        // Configurar el mapa
+        // Configuración del mapa
         SupportMapFragment mapFragment =
                 (SupportMapFragment) getChildFragmentManager().findFragmentById(R.id.map);
         if (mapFragment != null) {
