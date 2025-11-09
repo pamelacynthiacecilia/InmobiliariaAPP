@@ -20,7 +20,7 @@
     <fragment
         android:id="@+id/nav_inmuebles"
         android:name="com.example.app_inmobiliaria_lab3_2025.ui.inmuebles.InmueblesFragment"
-        android:label="Inmuebles"
+        android:label="Mis Inmuebles"
         tools:layout="@layout/fragment_inmuebles" />
 
     <fragment
@@ -34,4 +34,15 @@
         android:name="com.example.app_inmobiliaria_lab3_2025.ui.logout.LogoutFragment"
         android:label="Cerrar sesión"
         tools:layout="@layout/fragment_logout" />
+    <fragment
+        android:id="@+id/detalleInmuebleFragment"
+        android:name="com.example.app_inmobiliaria_lab3_2025.ui.inmuebles.DetalleInmuebleFragment"
+        android:label="Detalle Inmueble"
+        tools:layout="@layout/fragment_detalle_inmueble" />
+    <fragment
+        android:id="@+id/crearInmuebleFragment"
+        android:name="com.example.app_inmobiliaria_lab3_2025.ui.inmuebles.CrearInmuebleFragment"
+        android:label="Crear Inmueble"
+        tools:layout="@layout/fragment_crear_inmueble" />
+
 </navigation>

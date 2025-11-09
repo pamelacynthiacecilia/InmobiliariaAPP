@@ -8,25 +8,25 @@ public class Inmuebles implements Serializable {
     private String direccion;
     private String uso;
     private String tipo;
-    private int cantAmbientes;
+    private String ambientes;
     private double precio;
     private Propietarios propietarioInmueble;
-    private int disponible;
-    private String imagen;
-    private int propietarioId;
+    private int estado;
+    private String imageUrl;
+    private transient int idPropietario;
 
-    public Inmuebles(int id, String direccion, String uso, String tipo, int cantAmbientes, double precio, Propietarios propietarioInmueble,
-                    int disponible, String imagen, int propietarioId ) {
-        this.id = id;
-        this.direccion = direccion;
+    public Inmuebles(int id, String direccion, String uso, String tipo, String ambientes, double precio, Propietarios propietarioInmueble,
+                     int estado, String imagenUrl/*, int idPropietario*/) {
+        this.id = id;//esta
+        this.direccion = direccion;//esta
         this.uso = uso;
         this.tipo = tipo;
-        this.cantAmbientes = cantAmbientes;
-        this.precio = precio;
+        this.ambientes = ambientes;
+        this.precio = precio;//esta
         this.propietarioInmueble = propietarioInmueble;
-        this.disponible = disponible;
-        this.imagen = imagen;
-        this.propietarioId = propietarioId;
+        this.estado = estado;//esto
+        this.imageUrl = imagenUrl; //esta
+        //this.idPropietario = idPropietario;
     }
 
     public Inmuebles() {
@@ -64,12 +64,12 @@ public class Inmuebles implements Serializable {
         this.tipo = tipo;
     }
 
-    public int getCantAmbientes() {
-        return cantAmbientes;
+    public String getAmbientes() {
+        return ambientes;
     }
 
-    public void setAmbientes(int cantAmbientes) {
-        this.cantAmbientes = cantAmbientes;
+    public void setAmbientes(String ambientes) {
+        this.ambientes = ambientes;
     }
 
     public double getPrecio() {
@@ -88,30 +88,29 @@ public class Inmuebles implements Serializable {
         this.propietarioInmueble = propietarioInmueble;
     }
 
-    public int getDisponible() {
-        return disponible;
+    public int getEstado() {
+        return estado;
     }
 
-    public void setDisponible(int disponible) {
-        this.disponible = disponible;
+    public void setEstado(int estado) {
+        this.estado = estado;
     }
 
-    public String getImagen() {
-        return imagen;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImagen(String imagen) {
-        this.imagen = imagen;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 
-    public int getPropietarioId() {
-        return propietarioId;
+    /*public int getPropietarioId() {
+        return idPropietario;
     }
 
-    public void setPropietarioId(int propietarioId) {
-        this.propietarioId = propietarioId;
-    }
-
+    public void setPropietarioId(int idPropietario) {
+        this.idPropietario = idPropietario;
+    }*/
 
 
 }

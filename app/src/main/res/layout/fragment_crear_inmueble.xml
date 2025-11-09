@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Crear Inmueble"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_gravity="center"
+            android:layout_marginBottom="16dp" />
+
+        <EditText
+            android:id="@+id/editTipo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Tipo de inmueble"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editUso"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Uso"
+            android:inputType="text" />
+
+        <EditText
+            android:id="@+id/editDireccion"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Dirección"
+            android:inputType="textPostalAddress" />
+
+        <EditText
+            android:id="@+id/editAmbientes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Ambientes"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/editPrecio"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Precio"
+            android:inputType="numberDecimal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Estado"
+            android:layout_marginTop="12dp"
+            android:textStyle="bold" />
+
+        <RadioGroup
+            android:id="@+id/radioEstado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <RadioButton
+                android:id="@+id/radioDisponible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Disponible"
+                android:checked="true" />
+
+            <RadioButton
+                android:id="@+id/radioNoDisponible"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="No disponible" />
+        </RadioGroup>
+
+        <Button
+            android:id="@+id/btnSeleccionarImagen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Seleccionar imagen (opcional)"
+            android:layout_marginTop="16dp" />
+
+        <ImageView
+            android:id="@+id/imagePreview"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:layout_marginTop="8dp"
+            android:visibility="gone"
+            android:contentDescription="Vista previa de imagen" />
+
+        <Button
+            android:id="@+id/btnGuardarInmueble"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Guardar inmueble"
+            android:layout_marginTop="24dp" />
+    </LinearLayout>
+</ScrollView>

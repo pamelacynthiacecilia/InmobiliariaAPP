@@ -53,7 +53,7 @@ public class PerfilViewModel extends AndroidViewModel {
                     Propietarios propietario = response.body();
                     if (propietario != null) {
                         propietarioMutable.postValue(propietario);
-                       // mensajeMutable.postValue("Usuario cargado correctamente");
+                        // mensajeMutable.postValue("Usuario cargado correctamente");
                     } else {
                         mensajeMutable.postValue("Propietario NULO en body");
                     }

@@ -47,7 +47,7 @@ public class LoginActivity extends AppCompatActivity {
         etUsuario = findViewById(R.id.etUsuario);
         etClave = findViewById(R.id.etClave);
         btLogin = findViewById(R.id.btLogin);
-       // Log.d("Salida", btLogin.toString());
+        Log.d("Salida", btLogin.toString());
         btLogin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
