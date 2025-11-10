@@ -5,6 +5,7 @@ import android.content.SharedPreferences;
 import android.net.Uri;
 import android.util.Log;
 
+import com.example.app_inmobiliaria_lab3_2025.modelo.Contratos;
 import com.example.app_inmobiliaria_lab3_2025.modelo.Inmuebles;
 import com.example.app_inmobiliaria_lab3_2025.modelo.LoginView;
 import com.example.app_inmobiliaria_lab3_2025.modelo.Propietarios;
@@ -33,6 +34,7 @@ import retrofit2.http.Multipart;
 import retrofit2.http.POST;
 import retrofit2.http.PUT;
 import retrofit2.http.Part;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public class ApiClient {
@@ -139,7 +141,12 @@ public class ApiClient {
                 @Body Inmuebles inmuebles
         );
 
-        /*@Body Inmuebles inmueble*/
+
+        @GET("contrato/contratosDelInmueble/{id}")
+        Call<List<Contratos>> obtenerContratosPorInmueble(
+                @Header("Authorization") String token,
+                @Path("id") int idInmueble
+        );
 
 
         @Multipart

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    app:cardElevation="4dp"
+    app:cardCornerRadius="8dp"
+    android:layout_marginTop="56dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+     >
+
+        <TextView
+            android:id="@+id/tvIdContrato"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Contrato #1"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnVerContrato"
+            app:layout_constraintBottom_toTopOf="@+id/tvFechas" />
+
+        <TextView
+            android:id="@+id/tvFechas"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Inicio: 01/01/2025 - Fin: 01/01/2026"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tvIdContrato"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <TextView
+            android:id="@+id/tvDireccionInmueble"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="Dirección: Av. San Martín 123"
+            android:textSize="14sp"
+            app:layout_constraintTop_toBottomOf="@id/tvFechas"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+        <ImageButton
+            android:id="@+id/btnVerContrato"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:contentDescription="Ver contrato"
+            android:src="@drawable/ic_eye"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

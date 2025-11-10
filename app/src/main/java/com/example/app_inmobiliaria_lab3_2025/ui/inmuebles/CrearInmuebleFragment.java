@@ -50,7 +50,7 @@ public class CrearInmuebleFragment extends Fragment {
             if (exito != null && exito) {
                 new AlertDialog.Builder(requireContext())
                         .setTitle("Éxito")
-                        .setMessage("El estado del inmueble fue actualizado correctamente.")
+                        .setMessage("El inmueble fue creado con exito.")
                         .setPositiveButton("Aceptar", (dialog, which) -> {
                             // Volver al fragment de lista
                             Navigation.findNavController(binding.getRoot()).navigate(R.id.nav_inmuebles);
